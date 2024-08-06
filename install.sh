@@ -26,6 +26,17 @@ function install_fonts() {
   fc-cache -f -v
 }
 
+show_menu() {
+  echo "Select an option:"
+  echo "1. Unzip files"
+  echo "2. Install fonts"
+  echo "3. Install packages"
+  echo "4. Install Oh My Zsh"
+  echo "5. Install Flatpak apps"
+  echo "6. Install theme"
+  echo "7. Exit"
+}
+
 function update_install_pkgs() {
   # Update deps
   sudo dnf update -y
@@ -109,19 +120,63 @@ function flatpak_apps() {
 }
 
 # First we need to unzip the files
-unzip_config
+# unzip_config
 
 # Install fonts
-install_fonts
+# install_fonts
 
 # Update and install packages
-update_install_pkgs
+# update_install_pkgs
 
 # Installing Oh My Zsh
-ohmyzsh
+# ohmyzsh
 
 # Install ohmyzsh packages
-ohmyzsh_pkgs
+# ohmyzsh_pkgs
 
 # Install flatpak apps
-flatpak_apps
+# flatpak_apps
+
+
+while true; do
+  show_menu
+  read -p "Enter your choice: " choice
+
+  case $choice in
+    1)
+        unzip_config
+        ;;
+    2)
+        install_fonts
+        ;;
+    3)
+        update_install_pkgs
+        ;;
+    4)
+        ohmyzsh
+        ohmyzsh_pkgs
+        ;;
+    5)
+        flatpak_apps
+        ;;
+    6)
+        install_theme
+        ;;
+    7)
+        echo "Exiting..."
+        break
+        ;;
+    *)
+        echo "Invalid choice. Please try again."
+        ;;
+  esac
+done
+
+#  echo "Select an option:"
+#   echo "1. Unzip files"
+#   echo "2. Install fonts"
+#   echo "3. Install packages"
+#   echo "4. Install Oh My Zsh"
+#   echo "5. Install Flatpak apps"
+#   echo "6. Install theme"
+#   echo "7. Exit"
