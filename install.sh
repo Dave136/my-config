@@ -111,10 +111,6 @@ function flatpak_apps() {
   sudo flatpak install -y flathub org.telegram.desktop
 }
 
-function unpack_items() {
-  
-}
-
 # First we need to unzip the files
 unzip_config
 
