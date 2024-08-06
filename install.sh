@@ -64,6 +64,8 @@ function unzip_config() {
   unzip fonts.zip
   echo "Files extracted successfully"
   sleep 2
+  echo "Moving files..."
+  cp -r config/* $HOME/
   clear
 }
 
