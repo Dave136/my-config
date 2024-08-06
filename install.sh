@@ -60,7 +60,8 @@ function unzip_config() {
   echo "Installing zip/unzip deps..."
   install_pkgs "zip" "unzip"
   mv backup/*.zip .
-  unzip config.zip fonts.zip
+  unzip config.zip
+  unzip fonts.zip
   echo "Files extracted successfully"
   sleep 2
   clear

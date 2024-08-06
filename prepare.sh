@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf config.zip icons.zip fonts.zip backup
+rm -rf config.zip fonts.zip backup
 
 zip -e -r config.zip config
 zip -r -q fonts.zip fonts
