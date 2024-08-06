@@ -22,12 +22,8 @@ function install_fonts() {
   clear
   echo "Installing fonts..."
   mkdir -p ~/.local/share/fonts
-  cp -r ./config/fonts/* ~/.local/share/fonts
+  cp -r ./fonts/* ~/.local/share/fonts
   fc-cache -f -v
-}
-
-function mv_icons() {
-  mv ./icons ~/.icons
 }
 
 function update_install_pkgs() {
@@ -52,7 +48,8 @@ function update_install_pkgs() {
 function unzip_config() {
   echo "Installing zip/unzip deps..."
   install_pkgs "zip" "unzip"
-  unzip config.zip
+  mv backup/*.zip .
+  unzip config.zip fonts.zip
   echo "Files extracted successfully"
   sleep 2
   clear
@@ -113,9 +110,6 @@ function flatpak_apps() {
 
 # First we need to unzip the files
 unzip_config
-
-# Install icons
-mv_icons
 
 # Install fonts
 install_fonts
